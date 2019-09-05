@@ -1,0 +1,133 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Calculadora</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
+</head>
+<body id="fundo">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-9">Científica</div>
+			<div class="col-md-1" id="hist"><button onclick="mudahist();" class="hist-mem" id="hist-btn"><b>Histórico</b></button><br>
+			</div>
+			<div class="col-md-1" id="mem"><button onclick="mudamemoria();" class="hist-mem" id="mem-btn"><b>Memória</b></button></div>
+		</div><br>
+		<div class="row" id="min_resul">
+			<!--<div class="col-md-8"></div>
+			<div class="col-md-2" id="num_men">0</div>-->
+			<div class="col-md-9"><h4 id="subresultado"></h4></div>
+
+		</div><br><br>
+		<div class="row" id="resul">
+			<div class="col-md-9"><h1 id="resultado"></h1></div>
+			
+		</div><br><br>
+
+		<!-- Linha 1-->
+		<div class="row">
+		<div class="col-9">
+		<div class="row">
+			
+			<div class="col-md-1 mb-2    ">
+			<input type="button" value="DEG" class="men" id="grad" onclick="grad();">
+			</div>
+			<div class="col-md-1 mb-2   ">
+				<input type="button" value="HYP" class="men" onclick="hyp();">
+			</div>
+			<div class="col-md-1 mb-2    ">
+				<input type="button" value="F-E" class="men" onclick="fe();">
+			</div></div>
+		</div>
+	
+
+		<!--Linha 2-->
+		<div class="col-md-5">
+			<div class="row">
+				<div class="col-md-2 mb-2">
+					<input type="button" value="MC" class="men" id="MC" disabled onclick="marioclaudio();">
+				</div>
+				<div class="col-md-2 mb-2 px-1">
+					<input type="button" value="MR" class="men" id="MR" onclick="marcosrenato();">
+				</div>
+				<div class="col-md-2 mb-2 px-0">
+					<input type="button" value="M+"  class="men" onclick="marcao();">
+				</div>
+				<div class="col-md-2 mb-2 px-0">
+					<input type="button" value="M-"  class="men" onclick="marquinho();">
+				</div>
+				<div class="col-md-2 mb-2 px-0">
+					<input type="button" value="MS"  class="men" onclick="memoria3();">
+				</div>
+			</div></div>
+		<!--NUMEROS-->
+		<!--Linha 1-->
+		<div class="row">
+			<div class="col-md-1"><button class="bt_calc" value="x2" id="x" onclick="elevado(value);">x²</button></div>
+			<div class="col-md-1"><button class="bt_calc" value="xy" id="x" onclick="elevado(value);">x<sup>y</sup></button></div>
+			<div class="col-md-1"><button class="bt_calc" value="sin" id="sin" onclick="sin(value);"><span id="spansin">sin</span></button></div>
+			<div class="col-md-1"><button class="bt_calc" value="cos" id="cos" onclick="sin(value);"><span id="spancos">cos</span></button></div>
+			<div class="col-md-1"><button class="bt_calc" value="tan" id="tan" onclick="sin(value);"><span id="spantan">tan</span></button></div>
+			<div class="col-md-1"><button class="bt_calc" value="CE" id=""  onclick="apagar(value);">CE</button></div>
+			<div class="col-md-1"><button class="bt_calc" value="C" id="" onclick="apagar(value);">C</button></div>
+			<div class="col-md-1"><button class="bt_calc" value="apagar" id="" onclick="apagar(value);">&#9003</button> </div>
+			<div class="col-md-1"><button class="bt_calc btn_numa" value="/" id="operador" onclick="operador(value);">÷</button></div>
+		</div>
+		<!--Linha 2-->
+		<div class="row">
+				<div class="col-md-1"><button class="bt_calc" value="x3" id="x" onclick="elevado(value);">x³</button></div>
+				<div class="col-md-1"><button class="bt_calc" value="raizxy" id="x" onclick="raiz(value);"><sup>y</sup>&#8730x</button></div>
+				<div class="col-md-1"><button class="bt_calc"  value="sin1" id="sin1" onclick="sin(value);"><span id="spansin1">sin<sup>-1</sup></span></button></div>
+				<div class="col-md-1"><button class="bt_calc" value="cos1" id="cos1" onclick="sin(value);"><span id="spancos1">cos<sup>-1</sup></span></button></div>
+				<div class="col-md-1"><button class="bt_calc" value="tan1" id="tan1" onclick="sin(value);"><span id="spantan1">tan<sup>-1</sup></span></button></div>
+				<div class="col-md-1"><button class="bt_calc btn_num" class="" value="7" id="" onclick="botao(value);"><b>7</b></button></div>
+				<div class="col-md-1"><button class="bt_calc btn_num" value="8" id="" onclick="botao(value);" ><b>8</b></button></div>
+				<div class="col-md-1"><button class="bt_calc btn_num" value="9" id="" onclick="botao(value);"><b>9</b></button> </div>
+				<div class="col-md-1"><button class="bt_calc btn_numa" value="*" id="operador" onclick="operador(value);">×</button></div>		
+			</div>
+		<!--Linha 3-->
+		<div class="row">
+				<div class="col-md-1"><button class="bt_calc" value="raiz" id="" onclick="raiz(value);">&#8730</button></div>
+				<div class="col-md-1"><button class="bt_calc" value="10x" id="" onclick="elevado(value);">10<sup>x</sup></button></div>
+				<div class="col-md-1"><button class="bt_calc" value="log" id="" onclick=" logaritmo(value);">log</button></div>
+				<div class="col-md-1"><button class="bt_calc" value="exp" id="" onclick="exp2(value)">Exp</button></div>
+				<div class="col-md-1"><button class="bt_calc" value="mod" id="" onclick="mod();">Mod</button></div>
+				<div class="col-md-1"><button class="bt_calc btn_num" value="4" id="" onclick="botao(value);"><b>4</b></button></div>
+				<div class="col-md-1"><button class="bt_calc btn_num" value="5" id=""onclick="botao(value);" ><b>5</b></button></div>
+				<div class="col-md-1"><button class="bt_calc btn_num" value="6" id=" "onclick="botao(value);"><b>6</b></button> </div>
+				<div class="col-md-1"><button class="bt_calc btn_numa" value="-" id="operador"onclick="operador(value)">-</button></div>
+			</div>
+		<!--Linha 4-->
+		<div class="row">
+				<div class="col-md-1"><button class="bt_calc" value="1/x" id="x" onclick="umx();">¹/x</button></div>
+				<div class="col-md-1"><button class="bt_calc" value="ex" id="" onclick="exp();">e<sup>x</sup></button></div>
+				<div class="col-md-1"><button class="bt_calc" value="in" id="" onclick=" logaritmo(value);">In</button></div>
+				<div class="col-md-1"><button class="bt_calc" value="dms" id="" onclick="dms();">dms</button></div>
+				<div class="col-md-1"><button class="bt_calc" value="deg" id="">deg</button></div>
+				<div class="col-md-1"><button class="bt_calc btn_num" value="1" id=""onclick="botao(value);"><b>1</b></button></div>
+				<div class="col-md-1"><button class="bt_calc btn_num" value="2" id=""onclick="botao(value);"><b>2</b></button></div>
+				<div class="col-md-1"><button class="bt_calc btn_num" value="3" id=""onclick="botao(value);"><b>3</b></button> </div>
+				<div class="col-md-1"><button class="bt_calc btn_numa" value="+" id="operador" onclick="operador(value)">+</button></div>	
+			</div>
+		<!--Linha 5-->
+		<div class="row">
+				<div class="col-md-1"><button class="bt_calc" value="cima" id="" disabled>↑</button></div>
+				<div class="col-md-1"><button class="bt_calc" value="3.1415926535897932384626433833" id="" onclick="botao(value);">&#960</button></div>
+				<div class="col-md-1"><button class="bt_calc" value="n!" id="" onclick="fatorial();">n!</button></div>
+				<div class="col-md-1"><button class="bt_calc" value="(" id="" onclick="botao(value);">(</button></div>
+				<div class="col-md-1"><button class="bt_calc" value=")" id="" onclick="botao(value);">)</button></div>
+				<div class="col-md-1"><button class="bt_calc" value="+-" id="" onclick="maismenos();">±</button></div>
+				<div class="col-md-1"><button class="bt_calc btn_num" value="0" id=""onclick="botao(value);"><b>0</b></button></div>
+				<div class="col-md-1"><button class="bt_calc btn_numa" value="." id="" onclick="botao(value);">,</button> </div>
+				<div class="col-md-1"><button class="bt_calc btn_numa" value="igual" id="operador" onclick="calcular();">=</button></div>		
+			</div>
+			</div>
+		</div>
+		<div class="historico-memoria">
+			<div class="historico">
+				
+			</div>
+		</div>
+<script src="js/js.js"></script>
+</body>
+</html>
